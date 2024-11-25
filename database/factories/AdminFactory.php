@@ -6,15 +6,11 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Admin>
  */
-class UserFactory extends Factory
+class AdminFactory extends Factory
 {
-    /**
-     * The current password being used by the factory.
-     */
     protected static ?string $password;
-
     /**
      * Define the model's default state.
      *
@@ -27,8 +23,6 @@ class UserFactory extends Factory
             'email' => fake()->unique()->safeEmail(),
             'password' => static::$password ??= Hash::make('12345678'),
             'image_path' => null,
-            'gender' => fake()->randomElement(['male', 'female', 'other']),
-            'birth_date' => fake()->date(),
             'created_at' => now(),
             'updated_at' => now()
         ];
